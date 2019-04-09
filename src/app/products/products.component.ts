@@ -1,6 +1,8 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ProductService } from '../../services/product.service'
 import { Product } from '../class/product';
+import { UserService } from 'src/services/user.service';
+import { User } from '../class/user';
 
 
 export interface FormData {
@@ -16,11 +18,17 @@ export interface FormData {
 })
 export class ProductsComponent implements OnInit {
   products: Product
+  user: User
+  totalMonedas: number
 
 
-
-  constructor(private ps: ProductService) {
-
+  constructor(private ps: ProductService, private userService: UserService) {
+    this.userService.getUser()
+      .subscribe(data => {
+        this.user = data
+        this.totalMonedas = this.user.points
+      })
+      
     this.ps.getProducts().subscribe(data => {
       this.products = data
       console.log(this.products)
@@ -30,5 +38,8 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
+  canjear(_id: string){
+    console.log(_id)
+  }
 
 }
