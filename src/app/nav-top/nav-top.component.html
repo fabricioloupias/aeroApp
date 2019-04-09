@@ -1,0 +1,10 @@
+<mat-toolbar color="primary">
+ 
+    <mat-toolbar-row>
+      <span>Home</span>
+      <span class="spacer"></span>
+      <h4 *ngIf="user as u;">{{u.name}} <span class="badge badge-secondary align-middle ml-3" (click)="dialogPoints()"><img src="../../assets/icons/coin.svg" alt=""> {{u.points}} <mat-icon class="align-middle">add</mat-icon></span> 
+      </h4>
+    </mat-toolbar-row>
+
+</mat-toolbar>

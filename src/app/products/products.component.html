@@ -1,0 +1,13 @@
+<div class="row">
+  <div class="col-md-3 mb-4" *ngFor="let product of products | slice: 16; index as i;" >
+    <div class="card">
+      <div class="card-body">
+        <small>{{product.category}}</small>
+        <h6>{{product.name}}</h6>
+        <img class="img-fluid" src="{{product.img.url}}" alt="">
+        <h3 class="mt-2">{{product.cost}}</h3>
+      </div>
+    </div>
+  </div>
+</div>
+

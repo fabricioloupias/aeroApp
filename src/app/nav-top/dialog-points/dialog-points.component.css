@@ -1,0 +1,8 @@
+.m-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.m-container>* {
+  width: 100%;
+}
