@@ -1,7 +1,8 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog} from '@angular/material';
+import {MAT_DIALOG_DATA, MatDialog, MatSnackBar} from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, } from '@angular/forms';
 import { UserService } from 'src/services/user.service';
+import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 
 @Component({
   selector: 'app-dialog-points',
@@ -12,7 +13,7 @@ export class DialogPointsComponent implements OnInit {
 
   pointsForm: FormGroup; 
   pointValue: number
-  constructor(private fb: FormBuilder, private userService: UserService) { }
+  constructor(private fb: FormBuilder, private userService: UserService, private snackBar: MatSnackBar) { }
 
   ngOnInit() {
     this.pointsForm = this.fb.group({
@@ -28,6 +29,14 @@ export class DialogPointsComponent implements OnInit {
    this.userService.addPoints(this.pointValue)
       .subscribe(data => {
         console.log(data)
+        this.snackBar.openFromComponent(SnackbarComponent, {
+          data: data.messsage,
+          duration: 2000
+        })
+        .afterDismissed()
+          .subscribe(() => {
+            window.location.reload()
+          })
       })
   }
 

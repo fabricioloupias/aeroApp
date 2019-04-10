@@ -17,7 +17,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private URL_API = 'https://aerolab-challenge.now.sh';
+  private readonly URL_API = 'https://aerolab-challenge.now.sh';
   
 
   constructor(private http: HttpClient) { }

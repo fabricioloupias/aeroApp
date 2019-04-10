@@ -53,7 +53,11 @@ export class ProductsComponent implements OnInit {
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: data.message,
           duration: 2000
-        });
+        })
+        .afterDismissed()
+          .subscribe(() => {
+            window.location.reload()
+          })
       })
   }
 

@@ -5,7 +5,7 @@
       <span class="ml-3" routerLink="/historial">History</span>
       
       <span class="spacer"></span>
-      <h4 *ngIf="user | async as u ;">{{u.name}} <span class="badge badge-secondary align-middle ml-3" (click)="dialogPoints()"><img src="../../assets/icons/coin.svg" alt=""> {{u.points}} <mat-icon class="align-middle">add</mat-icon></span> 
+      <h4 *ngIf="user as u ;">{{u.name}} <span class="badge badge-secondary align-middle ml-3" (click)="dialogPoints()"><img src="../../assets/icons/coin.svg" alt=""> {{u.points}} <mat-icon class="align-middle">add</mat-icon></span> 
       </h4>
     </mat-toolbar-row>
 
