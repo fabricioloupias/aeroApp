@@ -17,12 +17,21 @@ const httpOptions = {
 
 
 export class ProductService {
-  private URL_API = 'https://aerolab-challenge.now.sh';
+  private readonly URL_API = 'https://aerolab-challenge.now.sh';
 
   constructor(private http: HttpClient) { }
 
   getProducts(){
     return this.http.get<Product>(`${this.URL_API}/products`, httpOptions)
   }
+
+  exchange(idProduct: string){
+    var data = {
+      productId : idProduct
+    }
+    return this.http.post<any>(`${this.URL_API}/redeem`, data, httpOptions)
+  }
+
+  
   
 }

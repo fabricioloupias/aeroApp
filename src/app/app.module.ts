@@ -16,6 +16,8 @@ import { HomeComponent } from './home/home.component';
 import { NavTopComponent } from './nav-top/nav-top.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogPointsComponent } from './nav-top/dialog-points/dialog-points.component';
+import { HistorialComponent } from './historial/historial.component';
+import { SnackbarComponent } from './snackbar/snackbar.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { DialogPointsComponent } from './nav-top/dialog-points/dialog-points.com
     ProductsComponent,
     HomeComponent,
     NavTopComponent,
-    DialogPointsComponent
+    DialogPointsComponent,
+    HistorialComponent,
+    SnackbarComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +38,11 @@ import { DialogPointsComponent } from './nav-top/dialog-points/dialog-points.com
     ReactiveFormsModule
   ],
   entryComponents: [
-    DialogPointsComponent
+    DialogPointsComponent,
+    SnackbarComponent
   ],
-  providers: [],
+  providers: [
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

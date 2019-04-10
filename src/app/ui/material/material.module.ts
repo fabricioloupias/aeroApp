@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
-import {MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule} from '@angular/material';
+import {MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule, MatProgressSpinnerModule, MatSnackBarModule, MatMenuModule} from '@angular/material';
 
 
 @NgModule({
-  imports: [MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule],
-  exports: [MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule],
+  imports: [MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule, MatProgressSpinnerModule, MatSnackBarModule, MatMenuModule],
+  exports: [MatToolbarModule, MatIconModule, MatPaginatorModule, MatFormFieldModule, MatSelectModule, MatDialogModule, MatButtonModule, MatProgressSpinnerModule, MatSnackBarModule, MatMenuModule],
 })
 export class MaterialModule { }

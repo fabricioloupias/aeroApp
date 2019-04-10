@@ -3,6 +3,7 @@ import { UserService } from '../../services/user.service';
 import { User } from '../class/user';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogPointsComponent } from './dialog-points/dialog-points.component';
+import { Observable } from 'rxjs';
 
 export interface DialogData {
   animal: string;
@@ -16,7 +17,7 @@ export interface DialogData {
 })
 export class NavTopComponent implements OnInit {
 
-  user: User
+  user: Observable<User>
   animal: string;
   name: string;
 
