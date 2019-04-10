@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 //material
 import { MaterialModule } from './ui/material/material.module'
+import { NgxPaginationModule } from 'ngx-pagination';
 
 //components
 import { ProductsComponent } from './products/products.component';
@@ -35,7 +36,8 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     HttpClientModule,
     MaterialModule,
     BrowserAnimationsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    NgxPaginationModule
   ],
   entryComponents: [
     DialogPointsComponent,

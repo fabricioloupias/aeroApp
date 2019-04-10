@@ -39,7 +39,6 @@ export class ProductsComponent implements OnInit {
       })
     this.ps.getProducts().subscribe(data => {
       this.products = data
-      console.log(this.products)
     })
   }
 
@@ -49,7 +48,6 @@ export class ProductsComponent implements OnInit {
   canjear(_id: string) {
     this.ps.exchange(_id)
       .subscribe(data => {
-        console.log(data)
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: data.message,
           duration: 2000

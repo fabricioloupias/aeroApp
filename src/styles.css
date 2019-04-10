@@ -6,3 +6,7 @@ button:focus{
     outline: none !important;
     box-shadow: none;
 }
+.ngx-pagination a, .ngx-pagination button:focus{
+    outline: none !important;
+    box-shadow: none;
+}

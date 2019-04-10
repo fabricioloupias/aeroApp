@@ -28,7 +28,6 @@ export class DialogPointsComponent implements OnInit {
 
    this.userService.addPoints(this.pointValue)
       .subscribe(data => {
-        console.log(data)
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: data.messsage,
           duration: 2000
