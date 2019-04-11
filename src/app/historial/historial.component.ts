@@ -9,19 +9,24 @@ import { Product } from '../class/product';
 })
 export class HistorialComponent implements OnInit {
 
-  products: Product
+  products: any
   isLoadingProducts: boolean = false
   constructor(private userServive: UserService) { 
     this.isLoadingProducts = true
     this.userServive.getHistory()
       .subscribe(data => {
         this.isLoadingProducts = false
-        this.products = data
-        console.log(data)
+        this.products = this.sortByDate(data)
       })
   }
 
   ngOnInit() {
+  }
+
+  private sortByDate(data) {
+    return data.sort((a, b) => {
+      return <any>new Date(b.createDate) - <any>new Date(a.createDate)
+    })
   }
 
 }

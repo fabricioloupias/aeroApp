@@ -24,7 +24,8 @@ export class ProductsComponent implements OnInit {
   user: User
   totalMonedas: number
   isLoadingProducts: boolean = false
-  isAvailable: boolean
+  redeeming: boolean
+  indexLoader: number
 
   constructor(private ps: ProductService, private userService: UserService, private snackBar: MatSnackBar) {
     this.isLoadingProducts = true
@@ -33,9 +34,8 @@ export class ProductsComponent implements OnInit {
         this.isLoadingProducts = false
         this.user = data
         this.totalMonedas = this.user.points
-
       }, err => {
-        console.log(err)
+        console.error(err)
       })
     this.ps.getProducts().subscribe(data => {
       this.products = data
@@ -45,14 +45,17 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
   }
 
-  canjear(_id: string) {
+  canjear(_id: string, i: number) {
+    this.redeeming = true
+    this.indexLoader = i
     this.ps.exchange(_id)
       .subscribe(data => {
+        this.redeeming = false
         this.snackBar.openFromComponent(SnackbarComponent, {
           data: data.message,
           duration: 2000
         })
-        .afterDismissed()
+          .afterDismissed()
           .subscribe(() => {
             window.location.reload()
           })

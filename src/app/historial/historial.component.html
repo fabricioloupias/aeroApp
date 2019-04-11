@@ -1,17 +1,24 @@
 <div class="container mt-5">
-    <h2>History</h2>
-    <mat-spinner class="mx-auto" *ngIf="isLoadingProducts" diameter="60"></mat-spinner>
-    <div class="row mt-5">
-      <div class="col-md-3 mb-4" *ngFor="let product of products; index as i;" >
-        <div class="card">
-          <div class="card-body">
-            <small>{{product.category}}</small>
-            <h6>{{product.name}}</h6>
-            <img class="img-fluid" src="{{product.img.url}}" alt="">
-            
-            <h3 class="mt-3"><img src="../../assets/icons/coin.svg" alt="">{{product.cost}}</h3>
-          </div>
+  <h2>History</h2>
+  <mat-spinner class="mx-auto" *ngIf="isLoadingProducts" diameter="60"></mat-spinner>
+  <div class="row mt-5">
+    <div class="col-md-3 col-sm-6 col-12 mb-4"
+      *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p } ; index as i;">
+      <div class="card">
+        <div class="card-header">
+          Traded: {{product.createDate | date:medium}}
+        </div>
+        <div class="card-body">
+          <small>{{product.category}}</small>
+          <h6>{{product.name}}</h6>
+          <img class="img-fluid" src="{{product.img.url}}" alt="">
+
+          <h3 class="mt-3"><img src="../../assets/icons/coin.svg" alt="">{{product.cost}}</h3>
         </div>
       </div>
-    </div>    
+    </div>
+    <div class="col-md-12 text-right mt-4">
+      <pagination-controls autoHide="true" responsive="true" (pageChange)="p = $event"></pagination-controls>
+    </div>
+  </div>
 </div>

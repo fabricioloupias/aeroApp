@@ -3,12 +3,15 @@ import { HttpClient, HttpHeaders }    from '@angular/common/http';
 import { User } from 'src/app/class/user';
 import { Observable } from 'rxjs';
 import { Product } from 'src/app/class/product';
+import { environment } from '../environments/environment'
+import { map } from 'rxjs/operators';
+
 
 
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI1Y2FiYmM4ZWEwZDM1ZjAwODI2MjBmZTkiLCJpYXQiOjE1NTQ3NTg3OTl9.ktA8LPxdj1O1dYucVrsJTGHkiiuDdtaczHfIMfjU5Bg'
+    'Authorization': `Bearer ${environment.token}`
   })
 };
 
@@ -17,7 +20,7 @@ const httpOptions = {
 })
 export class UserService {
 
-  private readonly URL_API = 'https://aerolab-challenge.now.sh';
+  private readonly URL_API = `${environment.url_api}`;
   
 
   constructor(private http: HttpClient) { }

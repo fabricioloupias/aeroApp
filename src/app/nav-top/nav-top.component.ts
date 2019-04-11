@@ -4,11 +4,8 @@ import { User } from '../class/user';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { DialogPointsComponent } from './dialog-points/dialog-points.component';
 import { Observable } from 'rxjs';
+import { RouterLinkActive } from '@angular/router';
 
-export interface DialogData {
-  animal: string;
-  name: string;
-}
 
 @Component({
   selector: 'app-nav-top',
@@ -25,24 +22,18 @@ export class NavTopComponent implements OnInit {
     this.userService.getUser().subscribe(data => {
       this.user = data;
     })
-    // this.userService.addPoints()
-    //   .subscribe(data => {
-    //     console.log(data)
-    //   })
-
-    
   }
 
   ngOnInit() {
   }
 
-  dialogPoints(): void {
+
+
+  dialogPoints(){
     const dialogRef = this.dialog.open(DialogPointsComponent, {
       width: '650px',
       autoFocus: false
     });
-
-  
   }
 
 }

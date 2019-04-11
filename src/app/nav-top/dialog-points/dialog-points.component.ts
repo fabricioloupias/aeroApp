@@ -1,5 +1,5 @@
 import { Component, OnInit, Inject } from '@angular/core';
-import {MAT_DIALOG_DATA, MatDialog, MatSnackBar} from '@angular/material';
+import { MatSnackBar, MatDialogRef } from '@angular/material';
 import { FormBuilder, FormControl, FormGroup, } from '@angular/forms';
 import { UserService } from 'src/services/user.service';
 import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
@@ -11,9 +11,11 @@ import { SnackbarComponent } from 'src/app/snackbar/snackbar.component';
 })
 export class DialogPointsComponent implements OnInit {
 
-  pointsForm: FormGroup; 
+  pointsForm: FormGroup;
   pointValue: number
-  constructor(private fb: FormBuilder, private userService: UserService, private snackBar: MatSnackBar) { }
+  pointsLoading: boolean = false
+  
+  constructor(private fb: FormBuilder, private userService: UserService, private snackBar: MatSnackBar, public dialogRef: MatDialogRef<DialogPointsComponent>) { }
 
   ngOnInit() {
     this.pointsForm = this.fb.group({
@@ -22,21 +24,25 @@ export class DialogPointsComponent implements OnInit {
   }
 
 
-  onSubmit(){
+  onSubmit() {
+  this.pointsLoading = true
     this.pointValue = parseInt(this.pointsForm.value.amount);
-    console.log(this.pointValue)
-
-   this.userService.addPoints(this.pointValue)
+    this.userService.addPoints(this.pointValue)
       .subscribe(data => {
+        this.closeDialog()
         this.snackBar.openFromComponent(SnackbarComponent, {
-          data: data.messsage,
+          data: data.message,
           duration: 2000
         })
-        .afterDismissed()
+          .afterDismissed()
           .subscribe(() => {
             window.location.reload()
           })
       })
+  }
+
+  closeDialog() {
+    this.dialogRef.close()
   }
 
 

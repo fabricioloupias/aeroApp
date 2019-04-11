@@ -19,6 +19,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogPointsComponent } from './nav-top/dialog-points/dialog-points.component';
 import { HistorialComponent } from './historial/historial.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
+import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_DIALOG_DATA, MatDialogRef, MatSnackBarRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
+
 
 @NgModule({
   declarations: [
@@ -44,6 +46,8 @@ import { SnackbarComponent } from './snackbar/snackbar.component';
     SnackbarComponent
   ],
   providers: [
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: {hasBackdrop: true} },
+    { provide: MAT_SNACK_BAR_DEFAULT_OPTIONS, useValue: {} },
   ],
   bootstrap: [AppComponent]
 })
