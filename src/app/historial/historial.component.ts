@@ -8,6 +8,7 @@ import { Product } from '../class/product';
   styleUrls: ['./historial.component.css']
 })
 export class HistorialComponent implements OnInit {
+  p: number[] = [];
 
   products: any
   isLoadingProducts: boolean = false

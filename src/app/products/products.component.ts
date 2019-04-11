@@ -26,6 +26,7 @@ export class ProductsComponent implements OnInit {
   isLoadingProducts: boolean = false
   redeeming: boolean
   indexLoader: number
+  p: number[] = [];
 
   constructor(private ps: ProductService, private userService: UserService, private snackBar: MatSnackBar) {
     this.isLoadingProducts = true
