@@ -34,5 +34,18 @@ export class ProductService {
   }
 
   
+
+  sortHighToLow(products: any) {
+    return products.sort((a, b) => {
+      return b.cost - a.cost
+    })
+  }
+
+  sortLowToHigh(products: any) {
+    return products.sort((a, b) => {
+      return a.cost - b.cost
+    })
+  }
+  
   
 }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { UserService } from 'src/services/user.service';
 import { Product } from '../class/product';
+import { ProductService } from 'src/services/product.service';
 
 @Component({
   selector: 'app-historial',
@@ -12,7 +13,7 @@ export class HistorialComponent implements OnInit {
 
   products: any
   isLoadingProducts: boolean = false
-  constructor(private userServive: UserService) { 
+  constructor(private userServive: UserService, private ps: ProductService) {
     this.isLoadingProducts = true
     this.userServive.getHistory()
       .subscribe(data => {
@@ -24,10 +25,23 @@ export class HistorialComponent implements OnInit {
   ngOnInit() {
   }
 
-  private sortByDate(data) {
+  byDate(){
+    this.sortByDate(this.products)
+  }
+  
+  sortToLow() {
+    this.ps.sortHighToLow(this.products)
+  }
+
+  sortToHigh() {
+    this.ps.sortLowToHigh(this.products)
+  }
+
+  private sortByDate(data){
     return data.sort((a, b) => {
       return <any>new Date(b.createDate) - <any>new Date(a.createDate)
     })
   }
+
 
 }

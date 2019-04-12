@@ -4,7 +4,7 @@
   </div>
   <div class="col-md-6 col-6 mb-5 text-right">
     <button mat-button color="primary" class="pr-0" [matMenuTriggerFor]="filterProducts">
-      Filter
+      Sort
       <mat-icon>keyboard_arrow_down</mat-icon>
     </button>
     <mat-menu #filterProducts="matMenu" xPosition="before">
@@ -17,7 +17,8 @@
     </mat-menu>
   </div>
   <mat-spinner class="mx-auto" *ngIf="isLoadingProducts" diameter="60"></mat-spinner>
-  <div class="col-md-3 col-sm-6 col-12 mb-4" *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p } ; index as i;">
+  <div class="col-md-3 col-sm-6 col-12 mb-4"
+    *ngFor="let product of products | paginate: { itemsPerPage: 12, currentPage: p } ; index as i;">
     <div class="card">
       <div class="card-body">
         <small>{{product.category}}</small>
@@ -25,14 +26,16 @@
         <img class="img-fluid" src="{{product.img.url}}" alt="">
         <mat-spinner class="mx-auto" *ngIf="isLoadingProducts" diameter="60"></mat-spinner>
         <h3 class="mt-3 mb-4"><img src="../../assets/icons/coin.svg" alt="">{{product.cost}}</h3>
-          <button mat-raised-button *ngIf="totalMonedas > product.cost && !redeeming" color="primary" class="w-100" (click)="canjear(product._id, i)">Redeem</button>
+        <button mat-raised-button *ngIf="totalMonedas > product.cost && !redeeming" color="primary" class="w-100"
+          (click)="canjear(product._id, i)">Redeem</button>
         <mat-spinner class="mx-auto" *ngIf="redeeming && indexLoader == i" diameter="25"></mat-spinner>
-        <button mat-stroked-button *ngIf="totalMonedas < product.cost" color="warn" class="w-100" disabled>Add {{product.cost - totalMonedas}} to exchange</button>
+        <button mat-stroked-button *ngIf="totalMonedas < product.cost" color="warn" class="w-100" disabled>Add
+          {{product.cost - totalMonedas}} to exchange</button>
         <!-- <span class="text-danger" *ngIf="totalMonedas < product.cost">* Add {{product.cost - totalMonedas}} to exchange</span> -->
       </div>
     </div>
   </div>
   <div class="col-md-12 text-right mt-4">
-      <pagination-controls responsive="true" autoHide="true" (pageChange)="p = $event"></pagination-controls>
+    <pagination-controls responsive="true" autoHide="true" (pageChange)="p = $event"></pagination-controls>
   </div>
 </div>

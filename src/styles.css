@@ -13,6 +13,6 @@ button:focus{
 .ngx-pagination{
     padding-left: 0
 }
-/* .cdk-global-overlay-wrapper, .cdk-overlay-container{
-    background: rgba(0,0,0,.32);
-  } */
+.mat-dialog-container{
+    margin: 0 16px
+}

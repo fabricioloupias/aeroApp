@@ -1,5 +1,27 @@
 <div class="container mt-5">
-  <h2>History</h2>
+  <div class="row">
+    <div class="col-md-6 col-6">
+      <h2>History</h2>
+    </div>
+    <div class="col-md-6 col-6 text-right">
+      <button mat-button color="primary" class="pr-0" [matMenuTriggerFor]="filterProducts">
+        Sort
+        <mat-icon>keyboard_arrow_down</mat-icon>
+      </button>
+      <mat-menu #filterProducts="matMenu" xPosition="before">
+        <button mat-menu-item (click)="byDate()">
+          <span>By date</span>
+        </button>
+        <button mat-menu-item (click)="sortToLow()">
+          <span>Highest to lowest</span>
+        </button>
+        <button mat-menu-item (click)="sortToHigh()">
+          <span>Lowest to highest</span>
+        </button>
+      </mat-menu>
+    </div>
+  </div>
+
   <mat-spinner class="mx-auto" *ngIf="isLoadingProducts" diameter="60"></mat-spinner>
   <div class="row mt-5">
     <div class="col-md-3 col-sm-6 col-12 mb-4"

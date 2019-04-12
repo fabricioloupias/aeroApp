@@ -41,6 +41,7 @@ export class ProductsComponent implements OnInit {
     this.ps.getProducts().subscribe(data => {
       this.products = data
     })
+
   }
 
   ngOnInit() {
@@ -64,23 +65,11 @@ export class ProductsComponent implements OnInit {
   }
 
   sortToLow() {
-    this.sortHighToLow()
+    this.ps.sortHighToLow(this.products)
   }
 
   sortToHigh() {
-    this.sortLowToHigh()
-  }
-
-  private sortHighToLow() {
-    return this.products.sort((a, b) => {
-      return b.cost - a.cost
-    })
-  }
-
-  private sortLowToHigh() {
-    return this.products.sort((a, b) => {
-      return a.cost - b.cost
-    })
+    this.ps.sortLowToHigh(this.products)
   }
 
 }

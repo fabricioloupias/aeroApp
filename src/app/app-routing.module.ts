@@ -5,9 +5,10 @@ import { HistorialComponent } from './historial/historial.component';
 import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
-  { path: '',
+  {
+    path: '',
     redirectTo: '/home',
-    pathMatch: 'full'
+    pathMatch: 'full',
   },
   {
     path: 'home',
