@@ -19,11 +19,16 @@ const httpOptions = {
 
 export class ProductService {
   private readonly URL_API = `${environment.url_api}`;
+  products: any
+  
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) { 
+    
+  }
 
   getProducts(){
-    return this.http.get<Product>(`${this.URL_API}/products`, httpOptions)
+    this.products = this.http.get<Product>(`${this.URL_API}/products`, httpOptions)
+    return this.products
   }
 
   exchange(idProduct: string){
@@ -32,8 +37,6 @@ export class ProductService {
     }
     return this.http.post<any>(`${this.URL_API}/redeem`, data, httpOptions)
   }
-
-  
 
   sortHighToLow(products: any) {
     return products.sort((a, b) => {

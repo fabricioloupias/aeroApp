@@ -17,7 +17,6 @@ import { HomeComponent } from './home/home.component';
 import { NavTopComponent } from './nav-top/nav-top.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DialogPointsComponent } from './nav-top/dialog-points/dialog-points.component';
-import { HistorialComponent } from './historial/historial.component';
 import { SnackbarComponent } from './snackbar/snackbar.component';
 import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_DIALOG_DATA, MatDialogRef, MatSnackBarRef, MAT_DIALOG_DEFAULT_OPTIONS } from '@angular/material';
 
@@ -29,7 +28,6 @@ import { MAT_SNACK_BAR_DEFAULT_OPTIONS, MAT_DIALOG_DATA, MatDialogRef, MatSnackB
     HomeComponent,
     NavTopComponent,
     DialogPointsComponent,
-    HistorialComponent,
     SnackbarComponent
   ],
   imports: [

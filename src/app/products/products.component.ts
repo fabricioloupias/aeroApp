@@ -27,9 +27,12 @@ export class ProductsComponent implements OnInit {
   redeeming: boolean
   indexLoader: number
   p: number[] = [];
+  sortLow: boolean
+  sortHigh: boolean
 
   constructor(private ps: ProductService, private userService: UserService, private snackBar: MatSnackBar) {
     this.isLoadingProducts = true
+    this.sortLow = true;
     this.userService.getUser()
       .subscribe(data => {
         this.isLoadingProducts = false
@@ -39,7 +42,7 @@ export class ProductsComponent implements OnInit {
         console.error(err)
       })
     this.ps.getProducts().subscribe(data => {
-      this.products = data
+      this.products =this.ps.sortLowToHigh(data);
     })
 
   }
@@ -66,10 +69,14 @@ export class ProductsComponent implements OnInit {
 
   sortToLow() {
     this.ps.sortHighToLow(this.products)
+    this.sortHigh = true;
+    this.sortLow = false;
   }
 
   sortToHigh() {
     this.ps.sortLowToHigh(this.products)
+    this.sortHigh = false;
+    this.sortLow = true;
   }
 
 }

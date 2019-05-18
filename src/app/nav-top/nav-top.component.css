@@ -25,14 +25,32 @@ span {
 
 .navbar-dark .navbar-toggler {
   border: none;
-  color: white !important
+  color: black !important
 }
 
 h4 {
-  margin-bottom: 0;
-  color: white;
+  margin: 0;
   font-size: 20px
 }
 .navbar{
   min-height: 73.5px
+}
+
+.navbar-text {
+  display: inline-block;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  margin-left: auto
+}
+@media (max-width: 991px){
+  .navbar{
+    min-height: auto
+  }
+  .navbar-light .navbar-toggler{
+    border: none;
+    padding: 0;
+  }
+  .navbar-text {
+    margin-right: auto
+  }
 }
