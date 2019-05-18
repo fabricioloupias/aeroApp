@@ -1,0 +1,31 @@
+[debug] [2019-05-18T21:57:05.954Z] ----------------------------------------------------------------------
+[debug] [2019-05-18T21:57:05.959Z] Command:       C:\Program Files\nodejs\node.exe C:\Users\loupi\AppData\Roaming\npm\node_modules\firebase-tools\lib\bin\firebase.js deploy
+[debug] [2019-05-18T21:57:05.960Z] CLI Version:   6.10.0
+[debug] [2019-05-18T21:57:05.960Z] Platform:      win32
+[debug] [2019-05-18T21:57:05.960Z] Node Version:  v8.11.2
+[debug] [2019-05-18T21:57:05.961Z] Time:          Sat May 18 2019 18:57:05 GMT-0300 (Hora estándar de Argentina)
+[debug] [2019-05-18T21:57:05.961Z] ----------------------------------------------------------------------
+[debug] 
+[debug] [2019-05-18T21:57:05.970Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2019-05-18T21:57:05.971Z] > authorizing via signed-in user
+[debug] [2019-05-18T21:57:05.971Z] [iam] checking project aeroapp-842b0 for permissions ["firebase.projects.get","firebasehosting.sites.update"]
+[debug] [2019-05-18T21:57:05.974Z] >>> HTTP REQUEST POST https://cloudresourcemanager.googleapis.com/v1/projects/aeroapp-842b0:testIamPermissions  
+
+[debug] [2019-05-18T21:57:07.177Z] <<< HTTP RESPONSE 200
+[debug] [2019-05-18T21:57:07.179Z] >>> HTTP REQUEST GET https://firebase.googleapis.com/v1beta1/projects/aeroapp-842b0  
+ 
+[debug] [2019-05-18T21:57:08.377Z] <<< HTTP RESPONSE 200
+[info] 
+[info] === Deploying to 'aeroapp-842b0'...
+[info] 
+[info] i  deploying hosting
+[debug] [2019-05-18T21:57:08.377Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/aeroapp-842b0/versions  
+
+[debug] [2019-05-18T21:57:10.223Z] <<< HTTP RESPONSE 200
+[info] i  hosting[aeroapp-842b0]: beginning deploy...
+[info] i  hosting[aeroapp-842b0]: found 18 files in dist/aeroApp
+[debug] [2019-05-18T21:57:10.248Z] [hosting] hash cache [ZGlzdFxhZXJvQXBw] load error: lines is not defined
+[debug] [2019-05-18T21:57:10.300Z] [hosting] hash cache [ZGlzdFxhZXJvQXBw] stored for 18 files
+[debug] [2019-05-18T21:57:10.300Z] [hosting][hash queue][FINAL]
+[debug] [2019-05-18T21:57:10.300Z] >>> HTTP REQUEST POST https://firebasehosting.googleapis.com/v1beta1/sites/aeroapp-842b0/versions/0b55e712fda7366b:populateFiles  
+ <request body omitted>

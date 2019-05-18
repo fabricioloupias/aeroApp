@@ -24,10 +24,7 @@ small{
     max-height: 240px;
 }
 
-.card-body{
-    padding: 16px
-   
-}
+
 .card .product-hover{
     position: absolute;
     width: 100%;
@@ -37,6 +34,10 @@ small{
     opacity: 0;
     transition: 0.2s ease-in-out;
 }
+.card hr{
+    width: 100%
+}
+
 .card button{
     position: absolute;
     top: 50%;
@@ -142,6 +143,9 @@ small{
     }
 }
 @media (max-width: 575px) {
+    .card-body{
+        text-align: center
+    }
     .bg-cat{
         height: 300px;
         background-position: 80% 50%
