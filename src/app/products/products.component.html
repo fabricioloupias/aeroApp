@@ -16,21 +16,6 @@
       <pagination-controls  responsive="true" autoHide="true" previousLabel="" nextLabel="" (pageChange)="p = $event">
       </pagination-controls>
     </div>
-    <!-- <div class="col-md-12 col-6 mb-5 text-right">
-      <button mat-button color="primary" class="pr-0" [matMenuTriggerFor]="filterProducts">
-        Sort
-        <mat-icon>keyboard_arrow_down</mat-icon>
-      </button>
-      <mat-menu #filterProducts="matMenu" xPosition="before">
-        <button mat-menu-item (click)="sortToLow()">
-          <span>Highest to lowest</span>
-        </button>
-        <button mat-menu-item (click)="sortToHigh()">
-          <span>Lowest to highest</span>
-        </button>
-      </mat-menu>
-    </div> -->
-
   </div>
 <hr>
 </div>
@@ -51,9 +36,7 @@
 
 
           <mat-spinner class="mx-auto" *ngIf="redeeming && indexLoader == i" diameter="25"></mat-spinner>
-          <!-- <button mat-stroked-button *ngIf="totalMonedas < product.cost" color="warn" class="w-100" disabled>Add
-                {{product.cost - totalMonedas}} to exchange</button> -->
-          <!-- <span class="text-danger" *ngIf="totalMonedas < product.cost">* Add {{product.cost - totalMonedas}} to exchange</span> -->
+
         </div>
         <div style="margin-left: -16px">
           
